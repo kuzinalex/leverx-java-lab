@@ -1,12 +1,12 @@
 # leverx-java-lab
 
-## Компиляция и запуск.
+## Сompiling and running.
 
--  Склонировать репозиторий и открыть в консоли leverx-java-lab/console-experiments.
--  Скомпилировать файлы командой **javac -d bin src/com/kuzin/*** , где **-d** - флаг, после которого следует указать расположение, куда попадут скомпилированные классы, **bin** - название папки, **src/com/kuzin*** расположение исходных файлов, * указывает, что необходимо скомпилировать все файлы.
--  Запустить программу командой **java -classpath bin com.kuzin.Main**, где **-classpath** - флаг, после которого следует указать местоположение скомпилированных классов.
+-  Clone repository and open leverx-java-lab/console-experiments in console.
+-  Compile files with command **javac -d bin src/com/kuzin/*** , where **-d** - flag, after which you should specify the location where the compiled classes will go, **bin** - folder name, **src/com/kuzin*** source files location, * means, that it is necessary to compile all classes.
+-  Run program with command **java -classpath bin com.kuzin.Main**, where **-classpath** - flag, after which you should specify the location of compiled classes.
 
-## Создание и запуск JAR-файла.
+## Сreating and running of a JAR-file.
 
-- Создать JAR-файл командой **jar -c -f  main.jar -e com.kuzin.Main  -C bin .**, где **-f** -  флаг, после которого указывается имя файла, **-e** - флаг, после которого укзаывается точка входа в программу, **-C** - флаг, после которого указывается путь к скомпилированным классам (в нашем случае bin), **.** - путь, где будет создан jar-файл.
-- Запустить jar-файл командой **java -jar main.jar**.
+- Create JAR-файл with command **jar -c -f  main.jar -e com.kuzin.Main  -C bin .**, где **-f** -  flag, after which you should specify file name, **-e** - flag, after which you should specify program entry point, **-C** - flag, after which you should specify the location of compiled classes  (**bin** in our case), **.** - path, where jar-file will be created.
+- Run jar-file with command **java -jar main.jar**.
