@@ -7,7 +7,7 @@ class TicTacToe {
     private final char SIGN_O = 'O';
     private final char SIGN_EMPTY = ' ';
     private char[][] gameField;
-    private int gameMode;
+    private String gameMode;
     private boolean isXTurn;
     private Random random;
     private Scanner scanner;
@@ -81,15 +81,15 @@ class TicTacToe {
 
     public void play() {
         while (true) {
-            try {
-                System.out.print("1. Player VS AI\n2. Player VS Player\nChoose game mode:");
-                gameMode = scanner.nextInt();
+            System.out.print("1. Player VS AI\n2. Player VS Player\nChoose game mode:");
+            gameMode = scanner.nextLine();
+            if (gameMode.matches("[1-2]")) {
                 switch (gameMode) {
-                    case 1: {
+                    case "1": {
                         playersVsAIGame();
                         break;
                     }
-                    case 2: {
+                    case "2": {
                         twoPlayersGame();
                         break;
                     }
@@ -98,10 +98,6 @@ class TicTacToe {
                         break;
                     }
                 }
-            } catch (Exception e) {
-                System.out.println("Select 1 or 2");
-                scanner = new Scanner(System.in);
-                System.gc();
             }
         }
     }
@@ -128,27 +124,26 @@ class TicTacToe {
     private void turnPlayer() {
         int x = 4;
         int y = 4;
-        if (gameMode == 1 ||isGameFieldEmpty()) {
+        String input;
+        if (gameMode.equals("1") || isGameFieldEmpty()) {
             isXTurn = true;
         }
 
         do {
             System.out.println("Enter X and Y (1..3):");
             System.out.print("Row: ");
-            scanner = new Scanner(System.in);
-            if (scanner.hasNextInt()) {
-                x = scanner.nextInt() - 1;
+            input = scanner.nextLine();
+            if (!input.matches("[1-3]")) {
+                continue;
             } else {
-                System.out.println();
-                scanner = new Scanner(System.in);
-                System.gc();
+                x = Integer.parseInt(input) - 1;
             }
             System.out.print("Column: ");
-            if (scanner.hasNextInt()) {
-                y = scanner.nextInt() - 1;
+            input = scanner.nextLine();
+            if (!input.matches("[1-3]")) {
+                continue;
             } else {
-                scanner = new Scanner(System.in);
-                System.gc();
+                y = Integer.parseInt(input) - 1;
             }
         } while (!isCellValid(x, y));
 
